@@ -1,0 +1,10 @@
+io.github.cnadjim.axon.distributed.autoconfigure.AxonDistributedAutoConfiguration
+io.github.cnadjim.quizup.microservice.infrastructure.autoconfigure.MicroserviceAutoConfiguration
+io.github.cnadjim.quizup.microservice.infrastructure.autoconfigure.ExceptionAutoConfiguration
+io.github.cnadjim.quizup.microservice.infrastructure.autoconfigure.CorsAutoConfiguration
+io.github.cnadjim.quizup.microservice.infrastructure.autoconfigure.SwaggerAutoConfiguration
+io.github.cnadjim.quizup.microservice.infrastructure.autoconfigure.ActuatorAutoConfiguration
+io.github.cnadjim.quizup.microservice.infrastructure.autoconfigure.ResourceServerAutoConfiguration
+io.github.cnadjim.quizup.microservice.infrastructure.autoconfigure.PasswordEncoderAutoConfiguration
+io.github.cnadjim.quizup.microservice.infrastructure.autoconfigure.WebSocketAutoConfiguration
+
