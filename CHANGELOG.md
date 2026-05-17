@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/quizup-organization/quizup-starter/compare/v1.0.1...v1.0.2) (2026-05-17)
+
+### Bug Fixes
+
+* use lombok ([96b2f3a](https://github.com/quizup-organization/quizup-starter/commit/96b2f3abc85cec94516f06ac8cdae31b64e0e4b4))
+
 ## [1.0.1](https://github.com/quizup-organization/quizup-starter/compare/v1.0.0...v1.0.1) (2026-05-16)
 
 ### Bug Fixes
