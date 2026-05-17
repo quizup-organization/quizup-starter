@@ -2,6 +2,8 @@ package io.github.quizup.microservice.infrastructure.properties;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.validation.annotation.Validated;
@@ -42,6 +44,8 @@ import java.util.List;
  *     enabled: true
  * </pre>
  */
+@Setter
+@Getter
 @Validated
 @ConfigurationProperties(prefix = "microservice")
 public class MicroserviceProperties {
@@ -70,57 +74,11 @@ public class MicroserviceProperties {
     @NestedConfigurationProperty
     private WebSocketProperties websocket = new WebSocketProperties();
 
-    public CorsProperties getCors() {
-        return cors;
-    }
-
-    public void setCors(CorsProperties cors) {
-        this.cors = cors;
-    }
-
-    public SwaggerProperties getSwagger() {
-        return swagger;
-    }
-
-    public void setSwagger(SwaggerProperties swagger) {
-        this.swagger = swagger;
-    }
-
-    public ExceptionHandlerProperties getExceptionHandler() {
-        return exceptionHandler;
-    }
-
-    public void setExceptionHandler(ExceptionHandlerProperties exceptionHandler) {
-        this.exceptionHandler = exceptionHandler;
-    }
-
-    public ActuatorProperties getActuator() {
-        return actuator;
-    }
-
-    public void setActuator(ActuatorProperties actuator) {
-        this.actuator = actuator;
-    }
-
-    public ResourceServerProperties getResourceServer() {
-        return resourceServer;
-    }
-
-    public void setResourceServer(ResourceServerProperties resourceServer) {
-        this.resourceServer = resourceServer;
-    }
-
-    public WebSocketProperties getWebsocket() {
-        return websocket;
-    }
-
-    public void setWebsocket(WebSocketProperties websocket) {
-        this.websocket = websocket;
-    }
-
     /**
      * Configuration properties for CORS (Cross-Origin Resource Sharing)
      */
+    @Setter
+    @Getter
     public static class CorsProperties {
 
         /**
@@ -162,67 +120,13 @@ public class MicroserviceProperties {
          */
         private Long maxAge = 3600L;
 
-        public boolean isEnabled() {
-            return enabled;
-        }
-
-        public void setEnabled(boolean enabled) {
-            this.enabled = enabled;
-        }
-
-        public List<String> getAllowedOrigins() {
-            return allowedOrigins;
-        }
-
-        public void setAllowedOrigins(List<String> allowedOrigins) {
-            this.allowedOrigins = allowedOrigins;
-        }
-
-        public List<String> getAllowedMethods() {
-            return allowedMethods;
-        }
-
-        public void setAllowedMethods(List<String> allowedMethods) {
-            this.allowedMethods = allowedMethods;
-        }
-
-        public List<String> getAllowedHeaders() {
-            return allowedHeaders;
-        }
-
-        public void setAllowedHeaders(List<String> allowedHeaders) {
-            this.allowedHeaders = allowedHeaders;
-        }
-
-        public List<String> getExposedHeaders() {
-            return exposedHeaders;
-        }
-
-        public void setExposedHeaders(List<String> exposedHeaders) {
-            this.exposedHeaders = exposedHeaders;
-        }
-
-        public boolean isAllowCredentials() {
-            return allowCredentials;
-        }
-
-        public void setAllowCredentials(boolean allowCredentials) {
-            this.allowCredentials = allowCredentials;
-        }
-
-        public Long getMaxAge() {
-            return maxAge;
-        }
-
-        public void setMaxAge(Long maxAge) {
-            this.maxAge = maxAge;
-        }
-
     }
 
     /**
      * Configuration properties for Swagger/OpenAPI documentation
      */
+    @Setter
+    @Getter
     public static class SwaggerProperties {
 
         /**
@@ -272,81 +176,11 @@ public class MicroserviceProperties {
         @NestedConfigurationProperty
         private OAuth2Properties oauth2 = new OAuth2Properties();
 
-        public boolean isEnabled() {
-            return enabled;
-        }
-
-        public void setEnabled(boolean enabled) {
-            this.enabled = enabled;
-        }
-
-        public String getVersion() {
-            return version;
-        }
-
-        public void setVersion(String version) {
-            this.version = version;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public String getTermsOfService() {
-            return termsOfService;
-        }
-
-        public void setTermsOfService(String termsOfService) {
-            this.termsOfService = termsOfService;
-        }
-
-        public boolean isUseRootPath() {
-            return useRootPath;
-        }
-
-        public void setUseRootPath(boolean useRootPath) {
-            this.useRootPath = useRootPath;
-        }
-
-        public boolean isShowOauth2Endpoints() {
-            return showOauth2Endpoints;
-        }
-
-        public void setShowOauth2Endpoints(boolean showOauth2Endpoints) {
-            this.showOauth2Endpoints = showOauth2Endpoints;
-        }
-
-        public ContactProperties getContact() {
-            return contact;
-        }
-
-        public void setContact(ContactProperties contact) {
-            this.contact = contact;
-        }
-
-        public LicenseProperties getLicense() {
-            return license;
-        }
-
-        public void setLicense(LicenseProperties license) {
-            this.license = license;
-        }
-
-        public OAuth2Properties getOauth2() {
-            return oauth2;
-        }
-
-        public void setOauth2(OAuth2Properties oauth2) {
-            this.oauth2 = oauth2;
-        }
-
         /**
          * OAuth2 configuration for Swagger UI authentication
          */
+        @Setter
+        @Getter
         public static class OAuth2Properties {
 
             /**
@@ -374,51 +208,13 @@ public class MicroserviceProperties {
              */
             private boolean usePkce = true;
 
-            public boolean isEnabled() {
-                return enabled;
-            }
-
-            public void setEnabled(boolean enabled) {
-                this.enabled = enabled;
-            }
-
-            public String getAuthorizationServerUrl() {
-                return authorizationServerUrl;
-            }
-
-            public void setAuthorizationServerUrl(String authorizationServerUrl) {
-                this.authorizationServerUrl = authorizationServerUrl;
-            }
-
-            public String getClientId() {
-                return clientId;
-            }
-
-            public void setClientId(String clientId) {
-                this.clientId = clientId;
-            }
-
-            public List<String> getScopes() {
-                return scopes;
-            }
-
-            public void setScopes(List<String> scopes) {
-                this.scopes = scopes;
-            }
-
-            public boolean isUsePkce() {
-                return usePkce;
-            }
-
-            public void setUsePkce(boolean usePkce) {
-                this.usePkce = usePkce;
-            }
-
         }
 
         /**
          * Contact information for the API
          */
+        @Setter
+        @Getter
         public static class ContactProperties {
 
             /**
@@ -436,35 +232,13 @@ public class MicroserviceProperties {
              */
             private String url;
 
-            public String getName() {
-                return name;
-            }
-
-            public void setName(String name) {
-                this.name = name;
-            }
-
-            public String getEmail() {
-                return email;
-            }
-
-            public void setEmail(String email) {
-                this.email = email;
-            }
-
-            public String getUrl() {
-                return url;
-            }
-
-            public void setUrl(String url) {
-                this.url = url;
-            }
-
         }
 
         /**
          * License information for the API
          */
+        @Setter
+        @Getter
         public static class LicenseProperties {
 
             /**
@@ -477,28 +251,14 @@ public class MicroserviceProperties {
              */
             private String url = "https://www.apache.org/licenses/LICENSE-2.0.html";
 
-            public String getName() {
-                return name;
-            }
-
-            public void setName(String name) {
-                this.name = name;
-            }
-
-            public String getUrl() {
-                return url;
-            }
-
-            public void setUrl(String url) {
-                this.url = url;
-            }
-
         }
     }
 
     /**
      * Configuration properties for Exception Handler
      */
+    @Setter
+    @Getter
     public static class ExceptionHandlerProperties {
 
         /**
@@ -516,35 +276,13 @@ public class MicroserviceProperties {
          */
         private boolean includeBindingErrors = true;
 
-        public boolean isEnabled() {
-            return enabled;
-        }
-
-        public void setEnabled(boolean enabled) {
-            this.enabled = enabled;
-        }
-
-        public boolean isLogStackTrace() {
-            return logStackTrace;
-        }
-
-        public void setLogStackTrace(boolean logStackTrace) {
-            this.logStackTrace = logStackTrace;
-        }
-
-        public boolean isIncludeBindingErrors() {
-            return includeBindingErrors;
-        }
-
-        public void setIncludeBindingErrors(boolean includeBindingErrors) {
-            this.includeBindingErrors = includeBindingErrors;
-        }
-
     }
 
     /**
      * Configuration properties for Spring Boot Actuator
      */
+    @Setter
+    @Getter
     public static class ActuatorProperties {
 
         /**
@@ -552,19 +290,13 @@ public class MicroserviceProperties {
          */
         private boolean enabled = true;
 
-        public boolean isEnabled() {
-            return enabled;
-        }
-
-        public void setEnabled(boolean enabled) {
-            this.enabled = enabled;
-        }
-
     }
 
     /**
      * Configuration properties for Resource Server (OAuth2 JWT validation)
      */
+    @Setter
+    @Getter
     public static class ResourceServerProperties {
 
         /**
@@ -579,6 +311,8 @@ public class MicroserviceProperties {
         @NestedConfigurationProperty
         private JwtProperties jwt = new JwtProperties();
 
+        @Setter
+        @Getter
         public static class JwtProperties {
 
             /**
@@ -591,39 +325,8 @@ public class MicroserviceProperties {
              */
             private String jwkSetUri = "http://localhost:8085/oauth2/jwks";
 
-            public String getIssuerUri() {
-                return issuerUri;
-            }
-
-            public void setIssuerUri(String issuerUri) {
-                this.issuerUri = issuerUri;
-            }
-
-            public String getJwkSetUri() {
-                return jwkSetUri;
-            }
-
-            public void setJwkSetUri(String jwkSetUri) {
-                this.jwkSetUri = jwkSetUri;
-            }
-
         }
 
-        public boolean isEnabled() {
-            return enabled;
-        }
-
-        public void setEnabled(boolean enabled) {
-            this.enabled = enabled;
-        }
-
-        public JwtProperties getJwt() {
-            return jwt;
-        }
-
-        public void setJwt(JwtProperties jwt) {
-            this.jwt = jwt;
-        }
     }
 
     /**
@@ -644,6 +347,8 @@ public class MicroserviceProperties {
      *     with-sock-js: true
      * </pre>
      */
+    @Setter
+    @Getter
     public static class WebSocketProperties {
 
         /**
@@ -679,54 +384,6 @@ public class MicroserviceProperties {
          * Whether to enable SockJS fallback
          */
         private boolean withSockJs = true;
-
-        public boolean isEnabled() {
-            return enabled;
-        }
-
-        public void setEnabled(boolean enabled) {
-            this.enabled = enabled;
-        }
-
-        public String getEndpoint() {
-            return endpoint;
-        }
-
-        public void setEndpoint(String endpoint) {
-            this.endpoint = endpoint;
-        }
-
-        public String getApplicationDestinationPrefix() {
-            return applicationDestinationPrefix;
-        }
-
-        public void setApplicationDestinationPrefix(String applicationDestinationPrefix) {
-            this.applicationDestinationPrefix = applicationDestinationPrefix;
-        }
-
-        public List<String> getBrokerDestinations() {
-            return brokerDestinations;
-        }
-
-        public void setBrokerDestinations(List<String> brokerDestinations) {
-            this.brokerDestinations = brokerDestinations;
-        }
-
-        public List<String> getAllowedOriginPatterns() {
-            return allowedOriginPatterns;
-        }
-
-        public void setAllowedOriginPatterns(List<String> allowedOriginPatterns) {
-            this.allowedOriginPatterns = allowedOriginPatterns;
-        }
-
-        public boolean isWithSockJs() {
-            return withSockJs;
-        }
-
-        public void setWithSockJs(boolean withSockJs) {
-            this.withSockJs = withSockJs;
-        }
 
     }
 }
