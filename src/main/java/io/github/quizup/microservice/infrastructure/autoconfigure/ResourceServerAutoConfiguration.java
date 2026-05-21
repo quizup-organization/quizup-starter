@@ -54,7 +54,11 @@ public class ResourceServerAutoConfiguration {
                 .authorizeHttpRequests(authorize -> authorize
                         // Always allow CORS preflight requests
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        // Public endpoints
+                        // Page d'accueil (avec ou sans slash)
+                        .requestMatchers(request -> {
+                            String uri = request.getRequestURI();
+                            return uri.isEmpty() || uri.equals("/");
+                        }).permitAll()
                         .requestMatchers(
                                 "/actuator/**",
                                 "/actuator/health/**",

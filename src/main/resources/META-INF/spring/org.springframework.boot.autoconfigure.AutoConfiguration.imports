@@ -7,4 +7,5 @@ io.github.quizup.microservice.infrastructure.autoconfigure.ActuatorAutoConfigura
 io.github.quizup.microservice.infrastructure.autoconfigure.ResourceServerAutoConfiguration
 io.github.quizup.microservice.infrastructure.autoconfigure.PasswordEncoderAutoConfiguration
 io.github.quizup.microservice.infrastructure.autoconfigure.WebSocketAutoConfiguration
+io.github.quizup.microservice.infrastructure.autoconfigure.SwaggerRootRedirectAutoConfiguration
 
